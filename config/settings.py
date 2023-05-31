@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-tovxv(%+0v#&iav=05j00&5k^+y-xh!qjgvn)mic-9ssd^i#44
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -56,11 +56,17 @@ IMPORT_EXPORT = {
     },
 }
 
+SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False
+}
+
+CORS_ORIGIN_ALLOW_ALL = True
+
 CORS_ALLOWED_ORIGINS = [
-    "https://example.com",
+    "*vercel.com",
     "https://sub.example.com",
     "http://localhost:8080",
-    "http://127.0.0.1:9000",
+    "http://127.0.0.1:8000",
 ]
 
 MIDDLEWARE = [
@@ -72,6 +78,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+
+INTERNAL_IPS = [
+    "127.0.0.1",
 ]
 
 ROOT_URLCONF = 'config.urls'
