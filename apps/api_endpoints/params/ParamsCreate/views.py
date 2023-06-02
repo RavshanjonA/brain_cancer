@@ -30,6 +30,7 @@ class ParamsListCreateView(ListCreateAPIView):
     def post(self, request):
         serializer = ParamsCreateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+        serializer.save()
         params_data = serializer.validated_data
         response_data = predict_label(params_data)
         return Response(data=response_data, status=status.HTTP_200_OK)

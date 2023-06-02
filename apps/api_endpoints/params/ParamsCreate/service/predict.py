@@ -1,8 +1,6 @@
 import numpy as np
 from keras.models import load_model
 
-path = ''
-
 
 def predict_label(params_data):
     model = load_model('apps/api_endpoints/params/ParamsCreate/service/cancer_predicter.h5')

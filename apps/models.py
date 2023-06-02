@@ -1,7 +1,7 @@
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.db.models import Model, CharField, IntegerField, BooleanField, ForeignKey, CASCADE, \
-    PositiveSmallIntegerField
+    PositiveSmallIntegerField, DateTimeField
 
 
 class Users(Model):
@@ -10,6 +10,7 @@ class Users(Model):
     age = PositiveSmallIntegerField()
     region = CharField(max_length=124)
     district = CharField(max_length=124)
+    created_at = DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name_plural = 'Users'
@@ -19,14 +20,14 @@ class Users(Model):
 
 
 class Params(Model):
-    user = ForeignKey('apps.Users', on_delete=CASCADE, related_name='params')
+
     x2 = BooleanField()
     x6 = BooleanField()
     x11 = PositiveSmallIntegerField(validators=[MinValueValidator(1), MaxValueValidator(6)])
     x12 = PositiveSmallIntegerField(validators=[MinValueValidator(1), MaxValueValidator(3)])
     x18 = PositiveSmallIntegerField(validators=[MinValueValidator(1), MaxValueValidator(3)])
-    x19 = PositiveSmallIntegerField(validators=[MinValueValidator(1), MaxValueValidator(3)])
-
+    x19 = PositiveSmallIntegerField(validators=[MinValueValidator(1), MaxValueValidator(12)])
+    created_at = DateTimeField(auto_now_add=True)
     class Meta:
         verbose_name_plural = 'Params'
 
