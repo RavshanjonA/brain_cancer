@@ -53,7 +53,7 @@ IMPORT_EXPORT = {
 }
 
 SWAGGER_SETTINGS = {
-    'USE_SESSION_AUTH': False
+    'USE_SESSION_AUTH': True
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -74,9 +74,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
 
 ROOT_URLCONF = 'config.urls'
 
@@ -133,19 +130,10 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 
-def gettext(s):
-    return s
-
 
 TIME_ZONE = 'UTC'
-LANGUAGES = (
-    ("en", gettext("English")),
-    ("ru", gettext("Русский")),
-    ("uz", gettext("O'zbekcha")),
-)
-LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)
 
-LANGUAGE_CODE = "en-us"
+
 
 TIME_ZONE = "Asia/Tashkent"
 
