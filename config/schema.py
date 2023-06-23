@@ -7,7 +7,7 @@ from .generator import BothHttpAndHttpsSchemaGenerator
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Canban API",
+        title="Brain Cancer API",
         default_version="v1",
     ),
     public=True,
